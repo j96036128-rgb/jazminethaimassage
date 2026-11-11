@@ -79,6 +79,10 @@ td.na{color:var(--line)}
 .card .price{font-family:var(--display);font-size:1.6rem;color:var(--gold-deep);font-weight:600}
 .save{color:var(--gold);font-weight:500;font-size:.84rem;letter-spacing:.04em}
 
+.heroimg{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:20px;border:1px solid var(--line);display:block}
+.gallery{display:grid;grid-template-columns:1fr;gap:12px}
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;border:1px solid var(--line);display:block}
+@media (min-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}}
 .band{background:var(--sand)}
 .pillars{display:grid;gap:12px}
 .pillar{display:flex;gap:12px;align-items:flex-start}
@@ -146,7 +150,7 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Jazmine+Sport+Thai+Massage+14+Tadworth+Parade+Hornchurch+RM12+5AS" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Directions</a>
         </div>
       </div>
-      <div class="photo" aria-hidden="true" style="min-height:220px;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--gold-soft),#d9c39a 70%,#c9ad7c)"><svg viewBox="0 0 64 64" style="width:46%;max-width:220px;color:rgba(255,253,248,.85)"><use href="#lotus"/></svg></div>
+      <img class="heroimg" src="reception.jpg" width="1200" height="900" alt="Reception at Jazmine Sport &amp; Thai Massage, Elm Park">
     </div>
   </div>
 
@@ -193,6 +197,18 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
         <strong>Clubs and gyms</strong>
         <p>Running clubs, football teams and gyms in Hornchurch and Elm Park can ask about member rates and block bookings.</p>
         <a class="btn btn-ghost" href="#book" style="align-self:flex-start;margin-top:6px">Ask about club rates</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gut">
+    <div class="inner" style="display:flex;flex-direction:column;gap:14px">
+      <p class="eyebrow">Inside Jazmine</p>
+      <h2>Calm, clean rooms for an unhurried hour</h2>
+      <div class="gallery">
+        <img src="treatment-room.jpg" width="900" height="675" loading="lazy" alt="Private Thai massage treatment room in Hornchurch">
+        <img src="thai-massage-bed.jpg" width="900" height="675" loading="lazy" alt="Massage bed dressed with Thai silk, herbal compress and flowers">
+        <img src="welcome-desk.jpg" width="900" height="675" loading="lazy" alt="Welcome desk with orchids and the treatment price list">
       </div>
     </div>
   </section>
