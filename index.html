@@ -9,6 +9,16 @@
 <title>Thai Massage in Hornchurch &amp; Elm Park | Jazmine Sport &amp; Thai Massage</title>
 <meta name="description" content="Traditional Thai, deep tissue and sports massage at 14 Tadworth Parade, Hornchurch, three minutes from Elm Park station. Open every day. Book by WhatsApp or call 01708 921674.">
 <link rel="canonical" href="https://jazminethaimassage.uk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jazmine Sport &amp; Thai Massage">
+<meta property="og:title" content="Thai Massage in Hornchurch &amp; Elm Park | Jazmine Sport &amp; Thai Massage">
+<meta property="og:description" content="Traditional Thai, deep tissue and sports massage at 14 Tadworth Parade, three minutes from Elm Park station. Open every day, 9:30am to 9:30pm.">
+<meta property="og:url" content="https://jazminethaimassage.uk/">
+<meta property="og:image" content="https://jazminethaimassage.uk/reception.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "DaySpa", "name": "Jazmine Sport & Thai Massage", "url": "https://jazminethaimassage.uk/", "image": "https://jazminethaimassage.uk/reception.jpg", "logo": "https://jazminethaimassage.uk/favicon-192.png", "telephone": "+441708921674", "priceRange": "£35-£160", "address": {"@type": "PostalAddress", "streetAddress": "14 Tadworth Parade", "addressLocality": "Hornchurch", "postalCode": "RM12 5AS", "addressCountry": "GB"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "09:30", "closes": "21:30"}], "sameAs": ["https://www.instagram.com/jazminesportsandthai/", "https://www.facebook.com/JazmineSportAndThai/"], "areaServed": ["Hornchurch", "Elm Park", "Romford", "Upminster"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to book?", "acceptedAnswer": {"@type": "Answer", "text": "Walk-ins are welcome when a therapist is free, but booking is the best way to get the time and treatment you want, especially in the evening and at weekends."}}, {"@type": "Question", "name": "How do I book?", "acceptedAnswer": {"@type": "Answer", "text": "Use the form on this page to send your treatment and time on WhatsApp and we will reply to confirm, or call 01708 921 674."}}, {"@type": "Question", "name": "What should I wear?", "acceptedAnswer": {"@type": "Answer", "text": "Loose, comfortable clothing for a traditional Thai massage, which is often done clothed. For oil massages you are covered with towels throughout."}}, {"@type": "Question", "name": "Which massage should I choose?", "acceptedAnswer": {"@type": "Answer", "text": "If you are new, a 60-minute Thai or Swedish massage is a good start. If you train or have a specific tight area, ask about sports or deep tissue. Tell us what you are looking for and we will suggest the best fit."}}, {"@type": "Question", "name": "When are you open?", "acceptedAnswer": {"@type": "Answer", "text": "Every day, including Sundays, from 9:30am to 9:30pm."}}, {"@type": "Question", "name": "Where can I park?", "acceptedAnswer": {"@type": "Answer", "text": "There are council spaces nearby, free after 6:30pm Monday to Saturday and all day Sunday. Elm Park station is a three-minute walk."}}, {"@type": "Question", "name": "Do you sell gift vouchers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for any treatment or amount. Order by WhatsApp or phone, or ask in the shop."}}]}</script>
 <style>body{margin:0;padding:0}img{max-width:100%}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap">
@@ -102,6 +112,14 @@ select,input{font:inherit;padding:10px 12px;border-radius:10px;border:1px solid 
 footer{padding-block:30px 100px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted);background:var(--sand)}
 footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 
+.rowbook{font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--gold-deep);border:1px solid var(--gold-soft);border-radius:999px;padding:3px 10px;margin-left:8px;white-space:nowrap;vertical-align:middle}
+.rowbook:hover{background:var(--gold-deep);color:#fff;border-color:var(--gold-deep)}
+.map{border:0;width:100%;height:260px;border-radius:16px;display:block}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.faq summary{cursor:pointer;font-family:var(--display);font-size:1.15rem;font-weight:600}
+.faq details p{margin-top:8px;color:var(--muted)}
+.rating{font-weight:500;color:var(--gold-deep)}
 .fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 6px 18px rgba(59,49,39,.25)}
 .fab svg{width:22px;height:22px}
 
@@ -183,7 +201,7 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
           <tbody id="priceRows"></tbody>
         </table>
       </div>
-      <p class="note">Hot stone add-on £10 per 15 minutes. Online bookings ask for a 50% deposit. Other lengths available on request.</p>
+      <p class="note">Hot stone add-on £10 per 15 minutes. Other lengths available on request.</p>
 
     </div>
   </section>
@@ -222,7 +240,12 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
         <h2>Give someone an hour to themselves</h2>
         <p>Vouchers for any treatment or package, bought in the shop or by message. A thoughtful present for Christmas, birthdays and new mums.</p>
       </div>
-      
+      <div class="card">
+        <strong>Order a voucher</strong>
+        <p>Tell us the treatment or the amount and who it is for. We will get it ready for you to collect.</p>
+        <a class="btn btn-wa" id="voucherWa" href="#book" style="align-self:flex-start;margin-top:6px">Order on WhatsApp</a>
+        <p class="note">Or call 01708 921 674, or ask in the shop.</p>
+      </div>
     </div>
   </section>
 
@@ -233,6 +256,7 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
         <h2>Book by WhatsApp or give us a call</h2>
         <p>Pick your treatment and a time, then send it to us on WhatsApp. We'll reply to confirm your booking.</p>
         <p>Prefer to call? <strong>01708 921 674</strong></p>
+        <p class="rating">Rated 4.6 out of 5 from 72 Google reviews (November 2026).</p>
       </div>
       <form id="bookForm" novalidate>
         <label for="bTreat">Treatment<select id="bTreat"></select></label>
@@ -263,6 +287,7 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
           <dt>Phone</dt><dd>01708 921 674</dd>
           <dt>Parking</dt><dd>Council spaces nearby; free after 6:30pm Monday to Saturday and all day Sunday</dd>
         </dl>
+        <iframe class="map" title="Map showing Jazmine Sport and Thai Massage at 14 Tadworth Parade" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Jazmine+Sport+%26+Thai+Massage,+14+Tadworth+Parade,+Hornchurch+RM12+5AS&amp;output=embed"></iframe>
       </div>
       <div class="card">
         <strong>What our clients say</strong>
@@ -271,11 +296,29 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
       </div>
     </div>
   </section>
+  <section id="faq" class="gut">
+    <div class="inner">
+      <p class="eyebrow">Questions</p>
+      <h2>Before you visit</h2>
+      <div class="faq">
+        <details><summary>Do I need to book?</summary><p>Walk-ins are welcome when a therapist is free, but booking is the best way to get the time and treatment you want, especially in the evening and at weekends.</p></details>
+        <details><summary>How do I book?</summary><p>Use the form on this page to send your treatment and time on WhatsApp and we will reply to confirm, or call 01708 921 674.</p></details>
+        <details><summary>What should I wear?</summary><p>Loose, comfortable clothing for a traditional Thai massage, which is often done clothed. For oil massages you are covered with towels throughout.</p></details>
+        <details><summary>Which massage should I choose?</summary><p>If you are new, a 60-minute Thai or Swedish massage is a good start. If you train or have a specific tight area, ask about sports or deep tissue. Tell us what you are looking for and we will suggest the best fit.</p></details>
+        <details><summary>When are you open?</summary><p>Every day, including Sundays, from 9:30am to 9:30pm.</p></details>
+        <details><summary>Where can I park?</summary><p>There are council spaces nearby, free after 6:30pm Monday to Saturday and all day Sunday. Elm Park station is a three-minute walk.</p></details>
+        <details><summary>Do you sell gift vouchers?</summary><p>Yes, for any treatment or amount. Order by WhatsApp or phone, or ask in the shop.</p></details>
+      </div>
+    </div>
+  </section>
   <section id="guides" class="gut">
     <div class="inner">
       <span class="eyebrow">Good to know</span>
       <h2>Guides from our therapists</h2>
       <div class="grid2">
+        <a class="card" href="/thai-massage" style="text-decoration:none;color:inherit"><h3>Thai massage</h3><p class="note">Traditional stretching and pressure work. What it is, who it suits and prices.</p></a>
+        <a class="card" href="/sports-massage" style="text-decoration:none;color:inherit"><h3>Sports massage</h3><p class="note">For runners, footballers and gym-goers. What to expect and prices.</p></a>
+        <a class="card" href="/deep-tissue-massage" style="text-decoration:none;color:inherit"><h3>Deep tissue massage</h3><p class="note">Firm, slow work for stubborn tight areas. Who it suits and prices.</p></a>
         <a class="card" href="/first-thai-massage" style="text-decoration:none;color:inherit"><h3>What to expect at your first Thai massage</h3><p class="note">What to wear, how firm it should feel and which treatment to book first.</p></a>
         <a class="card" href="/sports-massage-before-or-after" style="text-decoration:none;color:inherit"><h3>Sports massage: before or after a match?</h3><p class="note">Timing for footballers, runners and gym-goers, and when to see a physio first.</p></a>
       </div>
@@ -316,8 +359,8 @@ var T = [
 var LENS = [30,60,90];
 
 function renderPrices(f){
-  document.getElementById("priceRows").innerHTML = T.filter(function(t){return f==="all"||t.c===f;}).map(function(t){
-    return "<tr><td>"+t.n+"</td>"+t.p.map(function(v){return v?"<td>£"+v+"</td>":'<td class="na">–</td>';}).join("")+"</tr>";
+  document.getElementById("priceRows").innerHTML = T.map(function(t,i){return {t:t,i:i};}).filter(function(x){return x.t.c===f;}).map(function(x){
+    return "<tr><td>"+x.t.n+' <a class="rowbook" href="#book" data-i="'+x.i+'" aria-label="Book '+x.t.n+'">Book</a></td>'+x.t.p.map(function(v){return v?"<td>£"+v+"</td>":'<td class="na">–</td>';}).join("")+"</tr>";
   }).join("");
 }
 document.querySelectorAll(".chip").forEach(function(b){
@@ -349,6 +392,10 @@ function message(){
 function preview(){ document.getElementById("waPreview").textContent = "Message: “"+message()+"”"; }
 ["bLen","bDay","bTime","bName"].forEach(function(id){var el=document.getElementById(id);el.addEventListener("input",preview);el.addEventListener("change",preview);});
 fillLens();
+document.getElementById("priceRows").addEventListener("click",function(e){
+  var a=e.target.closest(".rowbook"); if(!a) return;
+  sT.value=a.dataset.i; fillLens();
+});
 
 function waLink(text){ return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text); }
 document.getElementById("bookForm").addEventListener("submit",function(e){
@@ -357,6 +404,7 @@ document.getElementById("bookForm").addEventListener("submit",function(e){
 });
 var hello = waLink("Hi Jazmine, I'd like to ask about booking a massage.");
 [document.getElementById("fab"), document.querySelector('[data-wa]')].forEach(function(a){ a.href=hello; a.target="_blank"; a.rel="noopener"; });
+var vw=document.getElementById("voucherWa"); vw.href=waLink("Hi Jazmine, I'd like to buy a gift voucher."); vw.target="_blank"; vw.rel="noopener";
 </script>
 </body>
 </html>
