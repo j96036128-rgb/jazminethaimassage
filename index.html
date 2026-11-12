@@ -112,6 +112,8 @@ select,input{font:inherit;padding:10px 12px;border-radius:10px;border:1px solid 
 footer{padding-block:30px 100px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted);background:var(--sand)}
 footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 
+.tname{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:4px}
+.tname:hover{text-decoration-color:var(--gold-deep)}
 .rowbook{font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--gold-deep);border:1px solid var(--gold-soft);border-radius:999px;padding:3px 10px;margin-left:8px;white-space:nowrap;vertical-align:middle}
 .rowbook:hover{background:var(--gold-deep);color:#fff;border-color:var(--gold-deep)}
 .faq{display:grid;gap:10px}
@@ -341,25 +343,25 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 var WA_NUMBER = "447565508979";
 
 var T = [
-  {n:"Deep Tissue Massage", c:"sport", p:[35,55,85]},
-  {n:"Sports Massage", c:"sport", p:[35,50,80]},
-  {n:"Thai Yoga Massage", c:"thai", p:[35,55,85]},
-  {n:"Full Body Thai Massage", c:"thai", p:[35,60,100]},
-  {n:"Four Hands Massage", c:"thai", p:[70,100,160]},
-  {n:"Swedish Massage", c:"relax", p:[35,55,85]},
+  {n:"Deep Tissue Massage", u:"deep-tissue-massage", c:"sport", p:[35,55,85]},
+  {n:"Sports Massage", u:"sports-massage", c:"sport", p:[35,50,80]},
+  {n:"Thai Yoga Massage", u:"thai-massage", c:"thai", p:[35,55,85]},
+  {n:"Full Body Thai Massage", u:"thai-massage", c:"thai", p:[35,60,100]},
+  {n:"Four Hands Massage", u:"four-hands-massage", c:"thai", p:[70,100,160]},
+  {n:"Swedish Massage", u:"swedish-massage", c:"relax", p:[35,55,85]},
   {n:"Oil Relaxing Massage", c:"relax", p:[35,55,85]},
-  {n:"Aromatherapy Massage", c:"relax", p:[40,60,100]},
-  {n:"Pregnancy Massage", c:"relax", p:[35,55,null]},
+  {n:"Aromatherapy Massage", u:"aromatherapy-massage", c:"relax", p:[40,60,100]},
+  {n:"Pregnancy Massage", u:"pregnancy-massage", c:"relax", p:[35,55,null]},
   {n:"Body Scrub", c:"relax", p:[40,60,null]},
-  {n:"Neck and Shoulder Massage", c:"focus", p:[35,55,null]},
-  {n:"Foot Massage", c:"focus", p:[35,55,null]},
-  {n:"Cupping Therapy", c:"focus", p:[40,60,null]}
+  {n:"Neck and Shoulder Massage", u:"neck-and-shoulder-massage", c:"focus", p:[35,55,null]},
+  {n:"Foot Massage", u:"foot-massage", c:"focus", p:[35,55,null]},
+  {n:"Cupping Therapy", u:"cupping-therapy", c:"focus", p:[40,60,null]}
 ];
 var LENS = [30,60,90];
 
 function renderPrices(f){
   document.getElementById("priceRows").innerHTML = T.map(function(t,i){return {t:t,i:i};}).filter(function(x){return x.t.c===f;}).map(function(x){
-    return "<tr><td>"+x.t.n+' <a class="rowbook" href="#book" data-i="'+x.i+'" aria-label="Book '+x.t.n+'">Book</a></td>'+x.t.p.map(function(v){return v?"<td>£"+v+"</td>":'<td class="na">–</td>';}).join("")+"</tr>";
+    return "<tr><td>"+(x.t.u?'<a class="tname" href="/'+x.t.u+'">'+x.t.n+'</a>':x.t.n)+' <a class="rowbook" href="#book" data-i="'+x.i+'" aria-label="Book '+x.t.n+'">Book</a></td>'+x.t.p.map(function(v){return v?"<td>£"+v+"</td>":'<td class="na">–</td>';}).join("")+"</tr>";
   }).join("");
 }
 document.querySelectorAll(".chip").forEach(function(b){
