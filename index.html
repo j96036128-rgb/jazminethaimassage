@@ -172,8 +172,7 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
       <p class="eyebrow">Treatments and prices</p>
       <h2>Choose your massage</h2>
       <div class="chips" role="group" aria-label="Filter treatments">
-        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
-        <button class="chip" type="button" data-f="sport" aria-pressed="false">Sport and deep tissue</button>
+        <button class="chip" type="button" data-f="sport" aria-pressed="true">Sport and deep tissue</button>
         <button class="chip" type="button" data-f="thai" aria-pressed="false">Thai</button>
         <button class="chip" type="button" data-f="relax" aria-pressed="false">Relaxing</button>
         <button class="chip" type="button" data-f="focus" aria-pressed="false">Short and focused</button>
@@ -303,16 +302,16 @@ var T = [
   {n:"Deep Tissue Massage", c:"sport", p:[35,55,85]},
   {n:"Sports Massage", c:"sport", p:[35,50,80]},
   {n:"Thai Yoga Massage", c:"thai", p:[35,55,85]},
-  {n:"Full Body Thai Massage", c:"thai", p:[null,60,100]},
+  {n:"Full Body Thai Massage", c:"thai", p:[35,60,100]},
   {n:"Four Hands Massage", c:"thai", p:[70,100,160]},
   {n:"Swedish Massage", c:"relax", p:[35,55,85]},
   {n:"Oil Relaxing Massage", c:"relax", p:[35,55,85]},
-  {n:"Aromatherapy Massage", c:"relax", p:[null,60,100]},
-  {n:"Pregnancy Massage", c:"relax", p:[null,55,null]},
-  {n:"Body Scrub", c:"relax", p:[null,60,null]},
+  {n:"Aromatherapy Massage", c:"relax", p:[40,60,100]},
+  {n:"Pregnancy Massage", c:"relax", p:[35,55,null]},
+  {n:"Body Scrub", c:"relax", p:[40,60,null]},
   {n:"Neck and Shoulder Massage", c:"focus", p:[35,55,null]},
   {n:"Foot Massage", c:"focus", p:[35,55,null]},
-  {n:"Cupping Therapy", c:"focus", p:[40,null,null]}
+  {n:"Cupping Therapy", c:"focus", p:[40,60,null]}
 ];
 var LENS = [30,60,90];
 
@@ -328,7 +327,7 @@ document.querySelectorAll(".chip").forEach(function(b){
     renderPrices(b.dataset.f);
   });
 });
-renderPrices("all");
+renderPrices("sport");
 
 var sT=document.getElementById("bTreat"), sL=document.getElementById("bLen"), sD=document.getElementById("bDay");
 T.forEach(function(t,i){var o=document.createElement("option");o.value=i;o.textContent=t.n;sT.appendChild(o);});
