@@ -53,6 +53,11 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 .pt thead th{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .pt tr:last-child td{border-bottom:0}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#fbf7ef">
+<meta name="apple-mobile-web-app-title" content="Jazmine">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
 <header class="gut">
@@ -98,5 +103,6 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
     <span>Jazmine Sport &amp; Thai Massage Ltd · Company number 12057445</span>
   </div>
 </footer>
+<script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')})}</script>
 </body>
 </html>

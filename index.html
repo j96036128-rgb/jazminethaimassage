@@ -134,6 +134,11 @@ footer .inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#fbf7ef">
+<meta name="apple-mobile-web-app-title" content="Jazmine">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -409,5 +414,6 @@ var hello = waLink("Hi Jazmine, I'd like to ask about booking a massage.");
 [document.getElementById("fab"), document.querySelector('[data-wa]')].forEach(function(a){ a.href=hello; a.target="_blank"; a.rel="noopener"; });
 var vw=document.getElementById("voucherWa"); vw.href=waLink("Hi Jazmine, I'd like to buy a gift voucher."); vw.target="_blank"; vw.rel="noopener";
 </script>
+<script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')})}</script>
 </body>
 </html>

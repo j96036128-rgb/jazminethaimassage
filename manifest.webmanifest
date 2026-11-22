@@ -1,0 +1,72 @@
+{
+  "name": "Jazmine Sport & Thai Massage",
+  "short_name": "Jazmine",
+  "description": "Thai, sports and deep tissue massage in Elm Park, Hornchurch. Book, call or buy a gift voucher.",
+  "id": "/",
+  "start_url": "/?utm_source=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf7ef",
+  "theme_color": "#fbf7ef",
+  "lang": "en-GB",
+  "categories": [
+    "health",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book on WhatsApp",
+      "short_name": "Book",
+      "url": "https://wa.me/447565508979",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Call the shop",
+      "short_name": "Call",
+      "url": "tel:+441708921674",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Gift vouchers",
+      "short_name": "Vouchers",
+      "url": "/christmas-gift-vouchers?utm_source=app",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
