@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Jazmine app | Jazmine Sport &amp; Thai Massage</title>
+<meta name="description" content="Book, call, buy gift vouchers and get last-minute openings from Jazmine Sport &amp; Thai Massage in Elm Park, Hornchurch.">
+<link rel="canonical" href="https://jazminethaimassage.uk/app">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#fbf7ef">
+<meta name="apple-mobile-web-app-title" content="Jazmine">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+:root{--ivory:#fbf7ef;--sand:#f3ead9;--card:#fffdf8;--gold:#a8843f;--gold-deep:#8a6a2c;--ink:#3b3127;--muted:#7a6b5a;--line:#e6dccb;--display:"Cormorant Garamond",Georgia,serif;--body:"Jost",system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;min-height:100vh}
+main{max-width:480px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.brand{text-align:center;margin:8px 0 18px}
+.brand img{width:120px;height:auto}
+.brand h1{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.1;margin:6px 0 2px}
+.brand p{margin:0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:96px;padding:16px;border-radius:18px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none}
+.tile b{font-weight:600;font-size:18px}
+.tile span{color:var(--muted);font-size:14px}
+.tile.primary{grid-column:1/-1;background:var(--gold-deep);border-color:var(--gold-deep);color:#fff;min-height:84px}
+.tile.primary span{color:#efe3c8}
+.card{margin-top:16px;padding:18px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.card h2{font-family:var(--display);font-weight:600;font-size:24px;margin:0 0 4px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.btn{display:block;width:100%;padding:14px;border-radius:999px;border:0;background:var(--gold-deep);color:#fff;font:600 16px var(--body);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--gold-deep);border:1px solid var(--gold-deep);margin-top:10px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--gold-deep)}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+.ok{color:#2f6b3a;font-weight:500}
+.steps{margin:6px 0 0;padding-left:20px;color:var(--ink);font-size:15px}
+[hidden]{display:none!important}
+.foot{text-align:center;margin-top:20px;font-size:14px;color:var(--muted)}
+.foot a{color:var(--gold-deep)}
+</style>
+</head>
+<body>
+<main>
+<header class="brand">
+<img src="/logo.png" alt="" width="305" height="240">
+<h1>Jazmine</h1>
+<p>Sport &amp; Thai Massage · 14 Tadworth Parade, Elm Park</p>
+</header>
+
+<nav class="grid" aria-label="Quick actions">
+<a class="tile primary" id="book" href="https://wa.me/447565508979?text=Hi%20Jazmine%2C%20I%27d%20like%20to%20book%20a%20massage."><b>Book a massage</b><span>Message us on WhatsApp</span></a>
+<a class="tile" href="tel:+441708921674"><b>Call</b><span>01708 921 674</span></a>
+<a class="tile" href="/christmas-gift-vouchers"><b>Gift vouchers</b><span>For any treatment</span></a>
+<a class="tile" href="/#treatments"><b>Treatments</b><span>Prices and times</span></a>
+<a class="tile" href="https://www.google.com/maps/search/?api=1&amp;query=Jazmine+Sport+%26+Thai+Massage+14+Tadworth+Parade+RM12+5AS"><b>Find us</b><span>Open daily 9:30am–9:30pm</span></a>
+</nav>
+
+<section class="card" id="install" hidden>
+<h2>Add Jazmine to your phone</h2>
+<p>One tap to book next time, and you can turn on alerts for last-minute openings.</p>
+<button class="btn" id="installBtn" hidden>Install the app</button>
+<ol class="steps" id="iosSteps" hidden><li>Tap the Share button in Safari</li><li>Choose <b>Add to Home Screen</b></li><li>Open Jazmine from your home screen to turn on alerts</li></ol>
+</section>
+
+<section class="card" id="alerts" hidden>
+<h2>Openings and reminders</h2>
+<p id="alertsIntro">Be first to hear when a slot comes free, and get a nudge when you're due your next massage.</p>
+<div id="alertsOff">
+<button class="btn" id="enable">Turn on alerts</button>
+</div>
+<div id="alertsOn" hidden>
+<div class="row"><label for="offers">Last-minute openings</label><input type="checkbox" id="offers" checked></div>
+<div class="row"><label for="remind">Remind me to rebook</label>
+<select id="remind"><option value="0">Off</option><option value="14">Every 2 weeks</option><option value="28" selected>Every 4 weeks</option><option value="42">Every 6 weeks</option></select></div>
+<p class="note ok" id="saved" hidden>Saved.</p>
+<button class="btn ghost" id="disable">Turn off all alerts</button>
+</div>
+<p class="note" id="alertsMsg"></p>
+<p class="note">We only store an anonymous code for your phone, not your name or number. Turn alerts off here at any time.</p>
+</section>
+
+<p class="foot"><a href="/">Full website</a></p>
+</main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var ua=navigator.userAgent, isIOS=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+var standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+var deferred=null;
+if(!standalone){
+  $('#install').hidden=false;
+  if(isIOS){$('#iosSteps').hidden=false}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;$('#installBtn').hidden=false});
+  $('#installBtn').onclick=function(){if(!deferred)return;deferred.prompt();deferred.userChoice.finally(function(){deferred=null;$('#installBtn').hidden=true})};
+}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}
+
+var API='', KEY='';
+function msg(t){$('#alertsMsg').textContent=t||''}
+function b64ToBytes(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';var r=atob(s),o=new Uint8Array(r.length);for(var i=0;i<r.length;i++)o[i]=r.charCodeAt(i);return o}
+function post(path,body){return fetch(API+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw new Error('server '+r.status);return r.json()})}
+function prefs(){return{offers:$('#offers').checked,remindDays:Number($('#remind').value)}}
+function save(sub){return post('/subscribe',Object.assign({subscription:sub.toJSON()},prefs())).then(function(){var s=$('#saved');s.hidden=false;setTimeout(function(){s.hidden=true},1500)})}
+function showOn(on){$('#alertsOn').hidden=!on;$('#alertsOff').hidden=on}
+function loadPrefs(){try{var p=JSON.parse(localStorage.getItem('jz-alerts')||'{}');if('offers' in p)$('#offers').checked=p.offers;if(p.remindDays!=null)$('#remind').value=String(p.remindDays)}catch(e){}}
+function storePrefs(){try{localStorage.setItem('jz-alerts',JSON.stringify(prefs()))}catch(e){}}
+
+fetch('/alerts-config.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{}}).catch(function(){return{}}).then(function(cfg){
+  API=(cfg&&cfg.api||'').replace(/\/$/,'');
+  if(!API)return;
+  $('#alerts').hidden=false;loadPrefs();
+  var supported='serviceWorker' in navigator&&'PushManager' in window&&'Notification' in window;
+  if(!supported){
+    $('#alertsOff').hidden=true;
+    msg(isIOS&&!standalone?'On iPhone, add Jazmine to your Home Screen first (see above), then open it from there to turn on alerts.':'Alerts are not supported in this browser.');
+    return;
+  }
+  navigator.serviceWorker.ready.then(function(reg){return reg.pushManager.getSubscription()}).then(function(sub){showOn(!!sub&&Notification.permission==='granted')});
+  $('#enable').onclick=function(){
+    msg('');
+    Notification.requestPermission().then(function(p){
+      if(p!=='granted'){msg('Alerts are blocked. You can allow them in your phone settings for this app.');throw 0}
+      return fetch(API+'/vapid').then(function(r){return r.json()});
+    }).then(function(v){KEY=v.key;return navigator.serviceWorker.ready}).then(function(reg){
+      return reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64ToBytes(KEY)});
+    }).then(function(sub){storePrefs();return save(sub).then(function(){showOn(true)})})
+    .catch(function(e){if(e!==0)msg('Could not turn on alerts. Please try again.')});
+  };
+  function update(){storePrefs();navigator.serviceWorker.ready.then(function(reg){return reg.pushManager.getSubscription()}).then(function(sub){if(sub)return save(sub)}).catch(function(){msg('Could not save. Please try again.')})}
+  $('#offers').onchange=update;$('#remind').onchange=update;
+  $('#disable').onclick=function(){
+    navigator.serviceWorker.ready.then(function(reg){return reg.pushManager.getSubscription()}).then(function(sub){
+      if(!sub)return;var ep=sub.endpoint;return sub.unsubscribe().then(function(){return post('/unsubscribe',{endpoint:ep})});
+    }).then(function(){showOn(false);msg('Alerts turned off.')}).catch(function(){msg('Could not turn off. Please try again.')});
+  };
+});
+})();
+</script>
+</body>
+</html>

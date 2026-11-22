@@ -3,7 +3,7 @@
   "short_name": "Jazmine",
   "description": "Thai, sports and deep tissue massage in Elm Park, Hornchurch. Book, call or buy a gift voucher.",
   "id": "/",
-  "start_url": "/?utm_source=app",
+  "start_url": "/app?utm_source=app",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
