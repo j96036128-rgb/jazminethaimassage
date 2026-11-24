@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Jazmine app | Jazmine Sport &amp; Thai Massage</title>
+<title>JZ</title>
 <meta name="description" content="Book, call, buy gift vouchers and get last-minute openings from Jazmine Sport &amp; Thai Massage in Elm Park, Hornchurch.">
 <link rel="canonical" href="https://jazminethaimassage.uk/app">
+<meta name="robots" content="noindex">
+<script>try{if(localStorage.getItem('jz-lock'))document.documentElement.classList.add('locked')}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#fbf7ef">
-<meta name="apple-mobile-web-app-title" content="Jazmine">
+<meta name="apple-mobile-web-app-title" content="JZ">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <style>
@@ -44,6 +46,21 @@ input[type=checkbox]{width:22px;height:22px;accent-color:var(--gold-deep)}
 .ok{color:#2f6b3a;font-weight:500}
 .steps{margin:6px 0 0;padding-left:20px;color:var(--ink);font-size:15px}
 [hidden]{display:none!important}
+html.locked main{visibility:hidden}
+.lock{position:fixed;inset:0;z-index:50;background:var(--ivory);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.lock .mono{width:84px;height:84px;border:2px solid var(--gold-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:34px;color:var(--gold-deep)}
+.lock h2{font-family:var(--display);font-weight:600;font-size:26px;margin:4px 0 0}
+.lock .hint{color:var(--muted);font-size:15px;margin:0;min-height:22px;text-align:center}
+.dots{display:flex;gap:14px;margin:6px 0 10px}
+.dots i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--gold-deep)}
+.dots i.on{background:var(--gold-deep)}
+.pad{display:grid;grid-template-columns:repeat(3,72px);gap:12px}
+.pad button{height:72px;border-radius:50%;border:1px solid var(--line);background:var(--card);font:500 26px var(--body);color:var(--ink);cursor:pointer}
+.pad button:active{background:var(--sand)}
+.pad button.blank{visibility:hidden}
+.pad button.del{font-size:18px;border-color:transparent;background:transparent}
+.linkbtn{background:none;border:0;color:var(--gold-deep);font:500 15px var(--body);text-decoration:underline;cursor:pointer;padding:8px}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 .foot{text-align:center;margin-top:20px;font-size:14px;color:var(--muted)}
 .foot a{color:var(--gold-deep)}
 </style>
@@ -64,6 +81,13 @@ input[type=checkbox]{width:22px;height:22px;accent-color:var(--gold-deep)}
 <a class="tile" href="https://www.google.com/maps/search/?api=1&amp;query=Jazmine+Sport+%26+Thai+Massage+14+Tadworth+Parade+RM12+5AS"><b>Find us</b><span>Open daily 9:30am–9:30pm</span></a>
 <a class="tile wide" href="https://search.google.com/local/writereview?placeid=ChIJ-SIJgtC62EcR1sGnMZQLmaU"><b>Leave us a Google review</b><span>Enjoyed your massage? It takes a minute and helps others find us</span></a>
 </nav>
+
+<section class="card" id="codeCard" hidden>
+<h2>Lock this app with a code</h2>
+<p id="codeIntro">Choose a 4-digit code. The app asks for it each time it opens, so nothing shows unless you enter it.</p>
+<button class="btn" id="codeSet">Set a code</button>
+<button class="btn ghost" id="codeOff" hidden>Remove the code</button>
+</section>
 
 <section class="card" id="install" hidden>
 <h2>Add Jazmine to your phone</h2>
@@ -91,6 +115,65 @@ input[type=checkbox]{width:22px;height:22px;accent-color:var(--gold-deep)}
 
 <p class="foot"><a href="/">Full website</a></p>
 </main>
+<div class="lock" id="lock" hidden role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+<div class="mono" aria-hidden="true">JZ</div>
+<h2 id="lockTitle">Enter your code</h2>
+<p class="hint" id="lockHint"></p>
+<div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="pad" id="pad"></div>
+<button class="linkbtn" id="lockAlt" type="button">Forgot your code?</button>
+<div id="resetBox" hidden style="text-align:center;max-width:300px">
+<p class="hint">Resetting removes the code and the settings saved on this phone. Your bookings are not affected.</p>
+<button class="btn" id="resetYes" type="button">Reset this app</button>
+<button class="linkbtn" id="resetNo" type="button">Cancel</button>
+</div>
+</div>
+<script>
+/* Privacy lock: a 4-digit code kept only on this phone (salted hash). It hides the screen; it is not account security. */
+(function(){
+var $=function(s){return document.querySelector(s)},KEY='jz-lock',root=document.documentElement;
+var mode='unlock',entry='',first='',fails=0,waitUntil=0,hiddenAt=0;
+function get(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){return null}}
+function put(v){try{v?localStorage.setItem(KEY,JSON.stringify(v)):localStorage.removeItem(KEY)}catch(e){}}
+function hex(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
+function hash(salt,pin){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(salt+':'+pin)).then(hex)}
+function dots(){var d=$('#dots').children;for(var i=0;i<4;i++)d[i].classList.toggle('on',i<entry.length)}
+function hint(t){$('#lockHint').textContent=t||''}
+function open(m){mode=m;entry='';first='';dots();$('#resetBox').hidden=true;$('#pad').hidden=false;$('#dots').hidden=false;
+  $('#lockTitle').textContent=m==='unlock'?'Enter your code':m==='set1'?'Choose a 4-digit code':'Enter it again';
+  $('#lockAlt').textContent=m==='unlock'?'Forgot your code?':'Cancel';hint('');$('#lock').hidden=false;root.classList.add('locked');document.title='JZ'}
+function close(){$('#lock').hidden=true;root.classList.remove('locked');card()}
+function shake(){var d=$('#dots');d.classList.remove('shake');void d.offsetWidth;d.classList.add('shake')}
+function done(){
+  if(mode==='unlock'){
+    if(Date.now()<waitUntil){entry='';dots();return hint('Too many tries. Wait a moment.')}
+    var v=get();if(!v)return close();
+    hash(v.s,entry).then(function(h){if(h===v.h){fails=0;close()}else{fails++;entry='';dots();shake();
+      if(fails>=5){waitUntil=Date.now()+30000;fails=0;hint('Too many tries. Wait 30 seconds.')}else hint('Wrong code. Try again.')}});
+  }else if(mode==='set1'){var f=entry;open('set2');first=f}
+  else{var a=first;if(entry!==a){open('set1');hint('The codes did not match. Start again.');shake();return}
+    var s=hex(crypto.getRandomValues(new Uint8Array(16)));hash(s,entry).then(function(h){put({s:s,h:h});close()})}
+}
+function press(k){if(k==='del'){entry=entry.slice(0,-1);dots();return}if(entry.length>=4)return;entry+=k;dots();if(entry.length===4)setTimeout(done,120)}
+var keys=['1','2','3','4','5','6','7','8','9','','0','del'];
+keys.forEach(function(k){var b=document.createElement('button');b.type='button';
+  if(!k){b.className='blank';b.tabIndex=-1;b.setAttribute('aria-hidden','true')}
+  else if(k==='del'){b.className='del';b.textContent='Delete';b.setAttribute('aria-label','Delete')}
+  else b.textContent=k;
+  b.onclick=function(){if(k)press(k)};$('#pad').appendChild(b)});
+document.addEventListener('keydown',function(e){if($('#lock').hidden)return;if(/^[0-9]$/.test(e.key))press(e.key);else if(e.key==='Backspace')press('del')});
+$('#lockAlt').onclick=function(){if(mode!=='unlock'){close();return}$('#pad').hidden=true;$('#dots').hidden=true;$('#lockAlt').hidden=true;hint('');$('#resetBox').hidden=false};
+$('#resetNo').onclick=function(){$('#lockAlt').hidden=false;open('unlock')};
+$('#resetYes').onclick=function(){put(null);try{localStorage.removeItem('jz-alerts')}catch(e){}$('#lockAlt').hidden=false;close()};
+function card(){var has=!!get(),c=$('#codeCard');c.hidden=false;$('#codeSet').textContent=has?'Change the code':'Set a code';$('#codeOff').hidden=!has;
+  $('#codeIntro').textContent=has?'This app asks for your code each time it opens.':'Choose a 4-digit code. The app asks for it each time it opens, so nothing shows unless you enter it.'}
+$('#codeSet').onclick=function(){open('set1')};
+$('#codeOff').onclick=function(){put(null);card()};
+if(!(window.crypto&&crypto.subtle)){root.classList.remove('locked');return}
+if(get())open('unlock');else card();
+document.addEventListener('visibilitychange',function(){if(document.hidden){hiddenAt=Date.now()}else if(get()&&$('#lock').hidden&&Date.now()-hiddenAt>30000){open('unlock')}});
+})();
+</script>
 <script>
 (function(){
 var $=function(s){return document.querySelector(s)};

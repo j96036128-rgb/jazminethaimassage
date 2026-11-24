@@ -1,5 +1,5 @@
 // Jazmine app: pages always fetched fresh when online; saved copy used offline.
-const CACHE = 'jazmine-v2';
+const CACHE = 'jazmine-v3';
 const CORE = ['/', '/app', '/offline.html', '/logo.png', '/icon-192.png', '/reception.jpg'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
@@ -26,8 +26,8 @@ self.addEventListener('fetch', e => {
 self.addEventListener('push', e => {
   let d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data && e.data.text() }; }
-  e.waitUntil(self.registration.showNotification(d.title || 'Jazmine', {
-    body: d.body || 'New from Jazmine', icon: '/icon-192.png', badge: '/icon-192.png',
+  e.waitUntil(self.registration.showNotification(d.title || 'JZ', {
+    body: d.body || 'You have a new message', icon: '/icon-192.png', badge: '/icon-192.png',
     tag: d.tag || 'jazmine', data: { url: d.url || '/app' }
   }));
 });
